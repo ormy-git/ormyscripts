@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ORMYScripts — Scripts intelligents, résultats concrets.</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
 <style>
 :root{--bg:#07080b;--bg2:#0d0f16;--surface:#12141d;--surface2:#181b28;--border:rgba(255,255,255,0.07);--accent:#00e5a0;--accent-d:#00b87d;--violet:#7b5ea7;--amber:#e8a838;--text:#eef0f5;--muted:#636978;--muted2:#959aaa}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -150,11 +152,10 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
     <li><a href="automatisations.html">Automatisations</a></li>
     <li><a href="prestations.html">Prestations</a></li>
     <li><a href="tarifs.html">Tarifs</a></li>
-    <li><a href="reseaux-sociaux.html">Réseaux sociaux</a></li>
   </ul>
   <div class="nav-cta">
     <a href="tarifs.html" class="btn-ghost">Voir les tarifs</a>
-    <a href="/cdn-cgi/l/email-protection#36555958425755427659445b4f4555445f464245185044" class="btn-primary">Nous contacter</a>
+    <a href="mailto:contact@ormyscripts.fr" class="btn-primary">Nous contacter</a>
   </div>
   <button class="hamburger" onclick="document.getElementById('mob').classList.add('open')">☰</button>
 </nav>
@@ -165,8 +166,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
   <a href="automatisations.html">Automatisations</a>
   <a href="prestations.html">Prestations</a>
   <a href="tarifs.html">Tarifs</a>
-  <a href="reseaux-sociaux.html">Réseaux sociaux</a>
-  <a href="/cdn-cgi/l/email-protection#d8bbb7b6acb9bbac98b7aab5a1abbbaab1a8acabf6beaa" style="color:var(--accent)">Nous contacter</a>
+  <a href="mailto:contact@ormyscripts.fr" style="color:var(--accent)">Nous contacter</a>
 </div>
 
 <!-- HERO -->
@@ -312,7 +312,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
       <h2>Prêt à automatiser votre activité ?</h2>
       <p>Contactez-nous pour un audit gratuit de vos besoins. Nous vous proposons une solution adaptée sous 48h.</p>
       <div class="cta-actions">
-        <a href="/cdn-cgi/l/email-protection#6c0f0302180d0f182c031e01151f0f1e051c181f420a1e" class="btn-primary btn-lg">Demander un audit gratuit →</a>
+        <a href="mailto:contact@ormyscripts.fr" class="btn-primary btn-lg">Demander un audit gratuit →</a>
         <a href="tarifs.html" class="btn-outline-lg">Voir les tarifs</a>
       </div>
     </div>
@@ -343,8 +343,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="/cdn-cgi/l/email-protection#9cfff3f2e8fdffe8dcf3eef1e5efffeef5ece8efb2faee"><span class="__cf_email__" data-cfemail="06656968726765724669746b7f7565746f767275286074">[email&#160;protected]</span></a>
-        <a href="reseaux-sociaux.html">Réseaux sociaux</a>
+        <a href="mailto:contact@ormyscripts.fr">contact@ormyscripts.fr</a>
         <a href="tarifs.html">Demander un devis</a>
       </div>
     </div>
@@ -359,11 +358,22 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const reveals=document.querySelectorAll('.reveal');
-new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:.1}).observe&&reveals.forEach(r=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:.1}).observe(r));
+
+<script>
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(el=>{ if(el.isIntersecting) el.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>revealObs.observe(r));
 
 function animCount(el){
   const t=parseFloat(el.dataset.target),s=el.dataset.suffix||'';
   let c=0,steps=55,inc=t/steps;
-  const timer=setInterval(()=>{c+=inc;if(c>=t){c=t;clearInterval(timer)}el.te
+  const timer=setInterval(()=>{c+=inc;if(c>=t){c=t;clearInterval(timer)}el.textContent=(Number.isInteger(t)?Math.floor(c):c.toFixed(1))+s},36);
+}
+const countObs = new IntersectionObserver((entries)=>{
+  entries.forEach(x=>{ if(x.isIntersecting){ animCount(x.target); countObs.unobserve(x.target); }});
+},{threshold:0.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>countObs.observe(el));
+</script>
+</body>
+</html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prestations — ORMYScripts</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
 <style>
 :root{--bg:#07080b;--bg2:#0d0f16;--surface:#12141d;--surface2:#181b28;--border:rgba(255,255,255,0.07);--accent:#00e5a0;--accent-d:#00b87d;--violet:#7b5ea7;--amber:#e8a838;--text:#eef0f5;--muted:#636978;--muted2:#959aaa}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -126,11 +128,10 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
     <li><a href="automatisations.html">Automatisations</a></li>
     <li><a href="prestations.html" class="active">Prestations</a></li>
     <li><a href="tarifs.html">Tarifs</a></li>
-    <li><a href="reseaux-sociaux.html">Réseaux sociaux</a></li>
   </ul>
   <div class="nav-cta">
     <a href="tarifs.html" class="btn-ghost">Voir les tarifs</a>
-    <a href="/cdn-cgi/l/email-protection#11727e7f65707265517e637c68627263786165623f7763" class="btn-primary">Nous contacter</a>
+    <a href="mailto:contact@ormyscripts.fr" class="btn-primary">Nous contacter</a>
   </div>
   <button class="hamburger" onclick="document.getElementById('mob').classList.add('open')">☰</button>
 </nav>
@@ -140,8 +141,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
   <a href="automatisations.html">Automatisations</a>
   <a href="prestations.html" class="active">Prestations</a>
   <a href="tarifs.html">Tarifs</a>
-  <a href="reseaux-sociaux.html">Réseaux sociaux</a>
-  <a href="/cdn-cgi/l/email-protection#b1d2dedfc5d0d2c5f1dec3dcc8c2d2c3d8c1c5c29fd7c3" style="color:var(--accent)">Nous contacter</a>
+  <a href="mailto:contact@ormyscripts.fr" style="color:var(--accent)">Nous contacter</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -152,7 +152,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
   <p>Maintenance préventive, formation, audit, intégration d'outils — nous sommes votre partenaire technique de confiance, sur site ou à distance.</p>
   <div class="hero-actions">
     <a href="tarifs.html" class="btn-primary btn-lg">Voir les tarifs →</a>
-    <a href="/cdn-cgi/l/email-protection#dfbcb0b1abbebcab9fb0adb2a6acbcadb6afabacf1b9ad" class="btn-outline-lg">Nous contacter</a>
+    <a href="mailto:contact@ormyscripts.fr" class="btn-outline-lg">Nous contacter</a>
   </div>
 </section>
 
@@ -379,7 +379,7 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
       <h2>Besoin d'un accompagnement<br>technique de confiance ?</h2>
       <p>Contactez-nous pour discuter de vos besoins. Premier échange gratuit, sans engagement.</p>
       <div class="cta-actions">
-        <a href="/cdn-cgi/l/email-protection#ef8c80819b8e8c9baf809d82969c8c9d869f9b9cc1899d" class="btn-primary btn-lg">Prendre contact →</a>
+        <a href="mailto:contact@ormyscripts.fr" class="btn-primary btn-lg">Prendre contact →</a>
         <a href="tarifs.html" class="btn-outline-lg">Voir les tarifs</a>
       </div>
     </div>
@@ -396,8 +396,21 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
       </div>
       <div class="footer-col"><h4>Navigation</h4><a href="index.html">Accueil</a><a href="automatisations.html">Automatisations</a><a href="prestations.html">Prestations</a><a href="tarifs.html">Tarifs</a></div>
       <div class="footer-col"><h4>Services</h4><a href="#maintenance">Maintenance</a><a href="#formation">Formation</a><a href="#audit">Audit & Conseil</a><a href="#integration">Intégrations</a></div>
-      <div class="footer-col"><h4>Contact</h4><a href="/cdn-cgi/l/email-protection#81e2eeeff5e0e2f5c1eef3ecf8f2e2f3e8f1f5f2afe7f3"><span class="__cf_email__" data-cfemail="91f2feffe5f0f2e5d1fee3fce8e2f2e3f8e1e5e2bff7e3">[email&#160;protected]</span></a><a href="tarifs.html">Demander un devis</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="mailto:contact@ormyscripts.fr">contact@ormyscripts.fr</a><a href="tarifs.html">Demander un devis</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 ORMYScripts. Tous droits réservés. 🇫🇷</span>
-      <div class="footer-links"><a href="#">Me
+      <div class="footer-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(el=>{ if(el.isIntersecting) el.target.classList.add('visible'); });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>revealObs.observe(r));
+</script>
+</body>
+</html>
