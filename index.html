@@ -343,7 +343,8 @@ footer{border-top:1px solid var(--border);padding:4rem 0 2rem;position:relative;
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:contact@ormyscripts.fr">contact@ormyscripts.fr</a>
+        <!-- old <a href="mailto:contact@ormyscripts.fr">contact@ormyscripts.fr</a>-->
+        <a href="#" id="contact-link" onclick="openMail(); return false;">Cliquez ici pour m'envoyer un email</a>
         <a href="tarifs.html">Demander un devis</a>
       </div>
     </div>
@@ -374,6 +375,13 @@ const countObs = new IntersectionObserver((entries)=>{
   entries.forEach(x=>{ if(x.isIntersecting){ animCount(x.target); countObs.unobserve(x.target); }});
 },{threshold:0.5});
 document.querySelectorAll('.stat-num[data-target]').forEach(el=>countObs.observe(el));
+
+function openMail() {
+    const user = "ormyscripts";
+    const domain = "lecodesolaire.fr";
+    // On reconstitue l'adresse dynamiquement au moment du clic
+    window.location.href = "mailto:" + user + "@" + domain;
+}
 </script>
 </body>
 </html>
